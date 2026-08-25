@@ -14,4 +14,43 @@
 body {
   background-image: url("./assets/imgs/fundo.png");
   background-repeat: repeat;
+  background-size: contain;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: end;
+  height: 932px;
+  width: 430px;
+  background-image: url("./assets/imgs/capa.png");
+  background-size: cover;
+}
+
+#buttonContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  margin-bottom: 5px;
+}
+
+button {
+  width: 160px;
+  height: 50px;
+  opacity: 1;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+h1 {
+  font-family: rans;
+  text-align: center;
+  margin: 0;
 }
