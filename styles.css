@@ -1,0 +1,17 @@
+@font-face {
+  font-family: rans;
+  src: url("./assets/fonts/rans__.ttf");
+}
+@font-face {
+  font-family: veteran;
+  src: url("./assets/fonts/veteran\ typewriter.ttf");
+}
+@font-face {
+  font-family: vintage;
+  src: url("./assets/fonts/Vintage\ Typewriter.ttf");
+}
+
+body {
+  background-image: url("./assets/imgs/fundo.png");
+  background-repeat: repeat;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 103.64 42.73">
+  <!-- Generator: Adobe Illustrator 29.8.2, SVG Export Plug-In . SVG Version: 2.1.1 Build 3)  -->
+  <defs>
+    <style>
+      .st0 {
+        fill: #91b631;
+      }
+
+      .st1 {
+        fill: none;
+        stroke: #91b631;
+        stroke-miterlimit: 10;
+      }
+    </style>
+  </defs>
+  <line class="st1" x1="21.33" y1="19.15" x2="76.94" y2="19.15"/>
+  <circle class="st0" cx="80.9" cy="19.15" r="6.13"/>
+</svg>
