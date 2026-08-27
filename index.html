@@ -10,13 +10,23 @@
 
 <body>
   <h1 class="hidden">E foi assim...<br />gerador de aventuras</h1>
-  <main>
+  <main id="startscreem">
     <div id="buttonContainer">
       <button id="newfich">Nova Ficha</button>
       <button id="loadfich">Carregar Ficha</button>
       <button id="findfich">Pesquisar Ficha</button>
     </div>
   </main>
+  <fieldset id="setupfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+    <form id="datafich"></form>
+  </fieldset>
+  <fieldset id="loaderfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+  </fieldset>
+  <fieldset id="searchfich" class="hidden">
+    <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+  </fieldset>
   <div id="adventureOutput"></div>
 
   <script src="script.js"></script>
