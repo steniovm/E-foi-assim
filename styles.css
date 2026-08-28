@@ -2,8 +2,9 @@
 :root {
   --background-img: url("./assets/imgs/fundo.png");
   --cover-v: url("./assets/imgs/capa-v.png");
-  --cover-h: url("./assets/imgs/capa-h.jpeg");
+  --cover-h: url("./assets/imgs/capa-h.png");
   --box-shadow: inset 0px 1px 0px 0px #a6827e;
+  --box-shadowd: inset 0px 0px 0px 1px #a6827e;
   --background-bt: linear-gradient(to bottom, #7d5d3b 5%, #634b30 100%);
   --background-clr: #7d5d3b;
   --border-clr: #54381e;
@@ -11,6 +12,9 @@
   --text-shadow-clr: #4d3534;
   --background-img-hover: linear-gradient(to bottom, #634b30 5%, #7d5d3b 100%);
   ---background-clr-hover: #634b30;
+  --input-background-clr: #e9d9c3;
+  --input-background-clr-checked: #2d1a00;
+  --text-dark-clr: #280404;
 }
 
 @font-face {
@@ -42,9 +46,12 @@ main {
   align-items: start;
   justify-content: end;
   height: 95vh;
-  width: 92vh;
+  width: 95vw;
+  min-width: 320px;
   background-image: var(--cover-h);
-  background-size: cover;
+  background-size: inherit;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 #buttonContainer {
@@ -84,6 +91,12 @@ h1 {
   text-align: center;
   margin: 0;
 }
+
+h3 {
+  color: var(--text-dark-clr);
+  font-family: Datatype;
+  font-weight: 900;
+}
 fieldset {
   display: flex;
   flex-direction: column;
@@ -101,6 +114,50 @@ fieldset {
   width: 100%;
   max-width: 350px;
   height: auto;
+}
+
+.form-group-h {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Datatype;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-dark-clr);
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+.form-group-v {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-family: Datatype;
+  font-weight: 900;
+  font-size: 20px;
+  color: var(--text-dark-clr);
+  line-height: 100%;
+  letter-spacing: 0%;
+}
+
+input[type="radio"] {
+  accent-color: var(--input-background-clr);
+}
+input[type="radio"]:hover + label {
+  accent-color: var(--background-clr-hover);
+  border: 1px solid transparent;
+  box-shadow: var(--box-shadow), var(--box-shadowd);
+}
+input[type="radio"]:checked {
+  accent-color: var(--input-background-clr-checked);
+  color: var(--light-clr);
+  border: 1px solid var(--border-clr);
+  box-shadow: var(--box-shadow);
 }
 
 .hidden {

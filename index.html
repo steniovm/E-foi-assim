@@ -10,7 +10,7 @@
 
 <body>
   <h1 class="hidden">E foi assim...<br />gerador de aventuras</h1>
-  <main id="startscreem">
+  <main id="startscreem" class="">
     <div id="buttonContainer">
       <button id="newfich">Nova Ficha</button>
       <button id="loadfich">Carregar Ficha</button>
@@ -19,7 +19,21 @@
   </main>
   <fieldset id="setupfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
-    <form id="datafich"></form>
+    <form id="datafich">
+      <div class="form-group-h">
+        <input type="radio" id="avcurto" name="typegame" value="curto" />
+        <label for="avcurto">Aventura Curta</label>
+        <input type="radio" id="avlongo" name="typegame" value="longo" />
+        <label for="avlongo">Aventura Longa</label>
+      </div>
+      <h3>Marcos principais</h3>
+      <div class="form-group-v">
+      </div>
+      <h3>Marcos extras</h3>
+      <div class="form-group-v">
+      </div>
+      <button class="backbutton">Voltar</button>
+    </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
