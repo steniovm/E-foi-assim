@@ -26,11 +26,31 @@
         <input type="radio" id="avlongo" name="typegame" value="longo" />
         <label for="avlongo">Aventura Longa</label>
       </div>
+      <h3>Nome da aventura</h3>
+      <input type="text" id="adventureName" name="adventureName" />
       <h3>Marcos principais</h3>
       <div class="form-group-v">
+        <div class="marcoBox">
+          <div class="arrowbuttons">
+            <button class="upArrow" type="button">&#9650;</button>
+            <button class="downArrow" type="button">&#9660;</button>
+          </div>
+          <div class="marcoInputBox">
+            <input type="text" class="marcoInput" name="marcoP" />
+          </div>
+          <div class="deleteButtonContainer">
+            <button class="functionButton deleteButton">-</button>
+          </div>
+        </div>
+      </div>
+      <div class="functionButtonContainer">
+        <button id="addMarcoP" class="functionButton">+</button>
       </div>
       <h3>Marcos extras</h3>
       <div class="form-group-v">
+      </div>
+      <div class="functionButtonContainer">
+        <button id="addMarcoE" class="functionButton">+</button>
       </div>
       <button class="backbutton">Voltar</button>
     </form>

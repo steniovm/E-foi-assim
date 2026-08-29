@@ -45,8 +45,8 @@ main {
   flex-direction: row;
   align-items: start;
   justify-content: end;
-  height: 95vh;
-  width: 95vw;
+  height: 99vh;
+  width: 99vw;
   min-width: 320px;
   background-image: var(--cover-h);
   background-size: inherit;
@@ -104,8 +104,8 @@ fieldset {
   justify-content: center;
   gap: 10px;
   border: none;
-  height: 95vh;
-  width: 95vw;
+  height: 99vh;
+  width: 99vw;
   min-width: 430px;
   background-image: var(--background-img);
   background-size: cover;
@@ -114,6 +114,10 @@ fieldset {
   width: 100%;
   max-width: 350px;
   height: auto;
+}
+form {
+  width: 50%;
+  min-width: 350px;
 }
 
 .form-group-h {
@@ -158,6 +162,96 @@ input[type="radio"]:checked {
   color: var(--light-clr);
   border: 1px solid var(--border-clr);
   box-shadow: var(--box-shadow);
+}
+input[type="text"] {
+  width: 100%;
+  height: 20px;
+  border-radius: 5px;
+  padding: 5px;
+  box-shadow: var(--box-shadow);
+  background: var(--input-background-clr);
+  background-color: var(--input-background-clr);
+  border: 1px solid var(--border-clr);
+  color: var(--text-dark-clr);
+  font-size: large;
+  font-weight: bold;
+}
+
+.functionButtonContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin: 10px 0 0 0;
+}
+
+.functionButton {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  box-shadow: var(--box-shadow);
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  cursor: pointer;
+  color: var(--light-clr);
+  font-weight: bold;
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.deleteButtonContainer {
+  width: 25px;
+  display: flex;
+  align-items: center;
+}
+.arrowbuttons,
+.deletebuttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  width: 100%;
+  padding: 0;
+}
+.marcoBox {
+  display: grid;
+  grid-template-columns: 25px minmax(0, 1fr) 25px;
+  grid-template-rows: auto;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+}
+.marcoInputBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+.marcoInput {
+  box-sizing: border-box;
+  min-height: 30px;
+}
+.upArrow,
+.downArrow {
+  width: 20px;
+  height: 20px;
+  box-shadow: var(--box-shadow);
+  background: var(--background-bt);
+  background-color: var(--background-clr);
+  cursor: pointer;
+  color: var(--light-clr);
+  font-weight: bold;
+  text-shadow: 0px 1px 0px var(--text-shadow-clr);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.upArrow {
+  border-radius: 50% 50% 0 0;
+}
+.downArrow {
+  border-radius: 0 0 50% 50%;
 }
 
 .hidden {
