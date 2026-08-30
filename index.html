@@ -22,35 +22,33 @@
     <form id="datafich">
       <div class="form-group-h">
         <div class="optionsradio">
-          <input type="radio" id="avcurto" name="typegame" value="curto" />
+          <input type="radio" id="avcurto" name="typegame" value="curto" required />
           <label for="avcurto">Aventura Curta</label>
         </div>
         <div class="optionsradio">
-          <input type="radio" id="avlongo" name="typegame" value="longo" />
+          <input type="radio" id="avlongo" name="typegame" value="longo" required />
           <label for="avlongo">Aventura Longa</label>
         </div>
       </div>
       <h3>Nome da aventura</h3>
       <input type="text" id="adventureName" name="adventureName"
-        placeholder="Faça referencia ao pesquisador ou à descoberta da aventura." />
+        placeholder="Faça referencia ao pesquisador ou à descoberta da aventura." required />
       <h3>Pesquisador</h3>
-      <input type="text" id="cientistName" name="cientistName" placeholder="Nome do pesquisador central da aventura." />
+      <input type="text" id="cientistName" name="cientistName" placeholder="Nome do pesquisador central da aventura."
+        required />
       <h3>Descoberta/Invenção</h3>
       <input type="text" id="discoveryName" name="discoveryName"
-        placeholder="Nome da descoberta ou invenção central da aventura." />
-      <h3>Autor</h3>
-      <input type="text" id="authorName" name="authorName"
-        placeholder="Seu nome, ou como gostária de ser reconhecido." />
+        placeholder="Nome da descoberta ou invenção central da aventura." required />
       <h3>Marcos principais</h3>
       <div class="form-group-v">
         <div class="marcoBox">
           <div class="arrowbuttons">
             <button class="upArrow" type="button">&#9650;</button>
-            <label class="numberOrder">1</label>
+            <label class="numberOrder">1º</label>
             <button class="downArrow" type="button">&#9660;</button>
           </div>
           <div class="marcoInputBox">
-            <input type="text" class="marcoInput" name="marcoP" />
+            <input type="text" class="marcoInput" name="marcoP" required />
           </div>
           <div class="deleteButtonContainer">
             <button class="functionButton deleteButton">-</button>
@@ -59,11 +57,11 @@
         <div class="marcoBox">
           <div class="arrowbuttons">
             <button class="upArrow" type="button">&#9650;</button>
-            <label class="numberOrder">2</label>
+            <label class="numberOrder">2º</label>
             <button class="downArrow" type="button">&#9660;</button>
           </div>
           <div class="marcoInputBox">
-            <input type="text" class="marcoInput" name="marcoP" />
+            <input type="text" class="marcoInput" name="marcoP" required />
           </div>
           <div class="deleteButtonContainer">
             <button class="functionButton deleteButton">-</button>
@@ -75,11 +73,33 @@
       </div>
       <h3>Marcos extras</h3>
       <div class="form-group-v">
+        <div class="marcoExBox">
+          <div class="marcoExInputBox">
+            <input type="text" class="marcoExInput" name="marcoE" required />
+          </div>
+          <div class="deleteButtonContainer">
+            <button class="functionButton deleteButton">-</button>
+          </div>
+        </div>
+        <div class="marcoExBox">
+          <div class="marcoExInputBox">
+            <input type="text" class="marcoExInput" name="marcoE" required />
+          </div>
+          <div class="deleteButtonContainer">
+            <button class="functionButton deleteButton">-</button>
+          </div>
+        </div>
       </div>
       <div class="functionButtonContainer">
         <button id="addMarcoE" class="functionButton">+</button>
       </div>
-      <button class="backbutton">Voltar</button>
+      <h3>Autor</h3>
+      <input type="text" id="authorName" name="authorName" placeholder="Seu nome, ou como gostária de ser reconhecido."
+        required />
+      <button id="savebutton">Salvar (JSON)</button>
+      <button id="exportbutton">Exportar (SVG)</button>
+      <button id="viewbutton">Visualizar (HTML)</button>
+      <button id="backbutton" class="backbutton">Voltar (Inicio)</button>
     </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">

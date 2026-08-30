@@ -228,12 +228,22 @@ input[type="text"] {
   gap: 2px;
   width: 100%;
 }
-.marcoInputBox {
+.marcoExBox {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 25px;
+  grid-template-rows: auto;
+  align-items: stretch;
+  gap: 2px;
+  width: 100%;
+}
+.marcoInputBox,
+.marcoExInputBox {
   width: 100%;
   display: flex;
   align-items: center;
 }
-.marcoInput {
+.marcoInput,
+.marcoExInput {
   box-sizing: border-box;
   min-height: 30px;
 }
