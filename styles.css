@@ -178,7 +178,7 @@ input[type="text"] {
   background-color: var(--input-background-clr);
   border: 1px solid var(--border-clr);
   color: var(--text-dark-clr);
-  font-size: large;
+  font-size: medium;
   font-weight: bold;
 }
 
