@@ -12,9 +12,9 @@
   <h1 class="hidden">E foi assim...<br />gerador de aventuras</h1>
   <main id="startscreem" class="">
     <div id="buttonContainer">
-      <button id="newfich">Nova Ficha</button>
-      <button id="loadfich">Carregar Ficha</button>
-      <button id="findfich">Pesquisar Ficha</button>
+      <button type="button" id="newfich">Nova Ficha</button>
+      <button type="button" id="loadfich">Carregar Ficha</button>
+      <button type="button" id="findfich">Pesquisar Ficha</button>
     </div>
   </main>
   <fieldset id="setupfich" class="hidden">
@@ -51,7 +51,7 @@
             <input type="text" class="marcoInput" name="marcoP" required />
           </div>
           <div class="deleteButtonContainer">
-            <button class="functionButton deleteButton">-</button>
+            <button type="button" class="functionButton deleteButton">-</button>
           </div>
         </div>
         <div class="marcoBox">
@@ -64,12 +64,12 @@
             <input type="text" class="marcoInput" name="marcoP" required />
           </div>
           <div class="deleteButtonContainer">
-            <button class="functionButton deleteButton">-</button>
+            <button type="button" class="functionButton deleteButton">-</button>
           </div>
         </div>
       </div>
       <div class="functionButtonContainer">
-        <button id="addMarcoP" class="functionButton">+</button>
+        <button type="button" id="addMarcoP" class="functionButton">+</button>
       </div>
       <h3>Marcos extras</h3>
       <div class="form-group-v">
@@ -78,7 +78,7 @@
             <input type="text" class="marcoExInput" name="marcoE" required />
           </div>
           <div class="deleteButtonContainer">
-            <button class="functionButton deleteButton">-</button>
+            <button type="button" class="functionButton deleteButton">-</button>
           </div>
         </div>
         <div class="marcoExBox">
@@ -86,20 +86,20 @@
             <input type="text" class="marcoExInput" name="marcoE" required />
           </div>
           <div class="deleteButtonContainer">
-            <button class="functionButton deleteButton">-</button>
+            <button type="button" class="functionButton deleteButton">-</button>
           </div>
         </div>
       </div>
       <div class="functionButtonContainer">
-        <button id="addMarcoE" class="functionButton">+</button>
+        <button type="button" id="addMarcoE" class="functionButton">+</button>
       </div>
       <h3>Autor</h3>
       <input type="text" id="authorName" name="authorName" placeholder="Seu nome, ou como gostária de ser reconhecido."
         required />
-      <button id="savebutton">Salvar (JSON)</button>
+      <button type="button" id="savebutton">Salvar (JSON)</button>
       <button id="exportbutton">Exportar (SVG)</button>
       <button id="viewbutton">Visualizar (HTML)</button>
-      <button id="backbutton" class="backbutton">Voltar (Inicio)</button>
+      <button type="button" id="backbutton" class="backbutton">Voltar (Inicio)</button>
     </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">
