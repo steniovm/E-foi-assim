@@ -134,6 +134,11 @@ form {
   line-height: 100%;
   letter-spacing: 0%;
 }
+.optionsradio {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowarp;
+}
 .form-group-v {
   display: flex;
   flex-direction: column;
