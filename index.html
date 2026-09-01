@@ -23,25 +23,25 @@
     <form id="datafich">
       <div class="form-group-h">
         <div class="optionsradio">
-          <input type="radio" id="avcurto" name="typegame" value="curto" required />
+          <input type="radio" id="avcurto" class="dataunic" name="scale" value="short" required />
           <label for="avcurto">Aventura Curta</label>
         </div>
         <div class="optionsradio">
-          <input type="radio" id="avlongo" name="typegame" value="longo" required />
+          <input type="radio" id="avlongo" class="dataunic" name="scale" value="long" required />
           <label for="avlongo">Aventura Longa</label>
         </div>
       </div>
       <h3>Nome da aventura</h3>
-      <input type="text" id="adventureName" name="adventureName"
+      <input type="text" id="adventureName" class="dataunic" name="title"
         placeholder="Faça referencia ao pesquisador ou à descoberta da aventura." required />
       <h3>Pesquisador</h3>
-      <input type="text" id="cientistName" name="cientistName" placeholder="Nome do pesquisador central da aventura."
-        required />
+      <input type="text" id="cientistName" class="dataunic" name="scientist"
+        placeholder="Nome do pesquisador central da aventura." required />
       <h3>Objetivo - Descoberta/Invenção</h3>
-      <input type="text" id="discoveryName" name="discoveryName"
+      <input type="text" id="discoveryName" class="dataunic" name="objective"
         placeholder="Remete à descoberta ou invenção a ser induzida ao pesquisador." required />
       <h3>Detalhamento</h3>
-      <textarea id="detailedDescription" name="detailedDescription"
+      <textarea id="detailedDescription" class="dataunic" name="detailing"
         placeholder="Descreva detalhes que achar relevantes à aventura, seus objetivos e desafios." required></textarea>
       <h3>Marcos principais</h3>
       <div class="form-group-v">
@@ -52,7 +52,7 @@
             <button class="downArrow" type="button">&#9660;</button>
           </div>
           <div class="marcoInputBox">
-            <input type="text" class="marcoInput" name="marcoP" required />
+            <input type="text" class="marcoInput" name="eventsmain" required />
           </div>
           <div class="deleteButtonContainer">
             <button type="button" class="functionButton deleteButton">-</button>
@@ -65,7 +65,7 @@
             <button class="downArrow" type="button">&#9660;</button>
           </div>
           <div class="marcoInputBox">
-            <input type="text" class="marcoInput" name="marcoP" required />
+            <input type="text" class="marcoInput" name="eventsmain" required />
           </div>
           <div class="deleteButtonContainer">
             <button type="button" class="functionButton deleteButton">-</button>
@@ -79,7 +79,7 @@
       <div class="form-group-v">
         <div class="marcoExBox">
           <div class="marcoExInputBox">
-            <input type="text" class="marcoExInput" name="marcoE" required />
+            <input type="text" class="marcoExInput" name="eventsextra" required />
           </div>
           <div class="deleteButtonContainer">
             <button type="button" class="functionButton deleteButton">-</button>
@@ -87,7 +87,7 @@
         </div>
         <div class="marcoExBox">
           <div class="marcoExInputBox">
-            <input type="text" class="marcoExInput" name="marcoE" required />
+            <input type="text" class="marcoExInput" name="eventsextra" required />
           </div>
           <div class="deleteButtonContainer">
             <button type="button" class="functionButton deleteButton">-</button>
@@ -98,8 +98,8 @@
         <button type="button" id="addMarcoE" class="functionButton">+</button>
       </div>
       <h3>Autor</h3>
-      <input type="text" id="authorName" name="authorName" placeholder="Seu nome, ou como gostária de ser reconhecido."
-        required />
+      <input type="text" id="authorName" class="dataunic" name="author"
+        placeholder="Seu nome, ou como gostária de ser reconhecido." required />
       <button type="button" id="savebutton">Salvar (JSON)</button>
       <button id="exportbutton">Exportar (SVG)</button>
       <button id="viewbutton">Visualizar (HTML)</button>
