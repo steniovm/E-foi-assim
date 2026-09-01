@@ -16,6 +16,7 @@
       <button type="button" id="loadfich">Carregar Ficha</button>
       <button type="button" id="findfich">Pesquisar Ficha</button>
     </div>
+    <input type="file" id="fileInput" accept=".json" class="hidden" />
   </main>
   <fieldset id="setupfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
@@ -36,9 +37,12 @@
       <h3>Pesquisador</h3>
       <input type="text" id="cientistName" name="cientistName" placeholder="Nome do pesquisador central da aventura."
         required />
-      <h3>Descoberta/Invenção</h3>
+      <h3>Objetivo - Descoberta/Invenção</h3>
       <input type="text" id="discoveryName" name="discoveryName"
-        placeholder="Nome da descoberta ou invenção central da aventura." required />
+        placeholder="Remete à descoberta ou invenção a ser induzida ao pesquisador." required />
+      <h3>Detalhamento</h3>
+      <textarea id="detailedDescription" name="detailedDescription"
+        placeholder="Descreva detalhes que achar relevantes à aventura, seus objetivos e desafios." required></textarea>
       <h3>Marcos principais</h3>
       <div class="form-group-v">
         <div class="marcoBox">
@@ -99,7 +103,7 @@
       <button type="button" id="savebutton">Salvar (JSON)</button>
       <button id="exportbutton">Exportar (SVG)</button>
       <button id="viewbutton">Visualizar (HTML)</button>
-      <button type="button" id="backbutton" class="backbutton">Voltar (Inicio)</button>
+      <button type="button" id="backbutton" class="backButton">Voltar (Inicio)</button>
     </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">

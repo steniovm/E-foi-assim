@@ -7,6 +7,19 @@ const newfichButton = document.getElementById("newfich");
 const loadfichButton = document.getElementById("loadfich");
 const findfichButton = document.getElementById("findfich");
 const backButton = document.getElementsByClassName("backButton");
+const fileInput = document.getElementById("fileInput");
+
+const fichData = {
+  scale: "",
+  title: "",
+  scientist: "",
+  objective: "",
+  detailing: "",
+  eventsmain: [],
+  eventsextra: [],
+  author: "",
+  date: "",
+};
 
 newfichButton.addEventListener("click", () => {
   startscreem.classList.add("hidden");
@@ -17,12 +30,84 @@ for (let i = 0; i < backButton.length; i++) {
   backButton[i].addEventListener("click", () => {
     setupfich.classList.add("hidden");
     startscreem.classList.remove("hidden");
+    console.log("Back button clicked");
   });
 }
 
+function fichverifiqued() {
+  if (
+    fichData.scale ||
+    fichData.title ||
+    fichData.scientist ||
+    fichData.objective ||
+    fichData.detailing ||
+    fichData.eventsmain.length > 0 ||
+    fichData.eventsextra.length > 0 ||
+    fichData.author ||
+    fichData.date
+  ) {
+    return true;
+  }
+  return false;
+}
+
+function loadfich(fichLoaded) {
+  if (fichLoaded.scale) {
+    fichData.scale = fichLoaded.scale;
+  }
+  if (fichLoaded.title) {
+    fichData.title = fichLoaded.title;
+  }
+  if (fichLoaded.scientist) {
+    fichData.scientist = fichLoaded.scientist;
+  }
+  if (fichLoaded.objective) {
+    fichData.objective = fichLoaded.objective;
+  }
+  if (fichLoaded.detailing) {
+    fichData.detailing = fichLoaded.detailing;
+  }
+  if (fichLoaded.eventsmain) {
+    fichData.eventsmain = fichLoaded.eventsmain;
+  }
+  if (fichLoaded.eventsextra) {
+    fichData.eventsextra = fichLoaded.eventsextra;
+  }
+  if (fichLoaded.author) {
+    fichData.author = fichLoaded.author;
+  }
+  if (fichLoaded.date) {
+    fichData.date = fichLoaded.date;
+  }
+}
+
 loadfichButton.addEventListener("click", () => {
-  startscreem.classList.add("hidden");
-  loaderfich.classList.remove("hidden");
+  if (fichverifiqued()) {
+    const confirmLoad = confirm(
+      "Você tem dados não salvos. Deseja continuar e perder os dados atuais?",
+    );
+    if (!confirmLoad) {
+      return;
+    }
+  }
+  fileInput.click();
+});
+fileInput.addEventListener("change", (event) => {
+  const file = event.target.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const fileContent = e.target.result;
+      try {
+        const jsonData = JSON.parse(fileContent);
+        loadfich(jsonData);
+        console.log("JSON data:", jsonData);
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+      }
+    };
+    reader.readAsText(file);
+  }
 });
 
 findfichButton.addEventListener("click", () => {
