@@ -177,6 +177,12 @@ function showFichData() {
   for (let i = 0; i < fichData.eventsmain.length; i++) {
     const newMarcoBox = creatMarcoBox(i);
     newMarcoBox.querySelector(".marcoInput").value = fichData.eventsmain[i];
+    const removeButton = newMarcoBox.querySelector(".deleteButton");
+    removeButton.addEventListener("click", () => {
+      newMarcoBox.remove();
+      seteventinmarcodata(); // Atualiza os eventos principais após a remoção
+      capturedataform();
+    });
     marcoContainer.appendChild(newMarcoBox);
   }
 
@@ -187,6 +193,12 @@ function showFichData() {
     const newMarcoExBox = creatMarcoExBox(i);
     newMarcoExBox.querySelector(".marcoExInput").value =
       fichData.eventsextra[i];
+    const removeButton = newMarcoExBox.querySelector(".deleteButton");
+    removeButton.addEventListener("click", () => {
+      newMarcoExBox.remove();
+      seteventinmarcoexdata(); // Atualiza os eventos extras após a remoção
+      capturedataform();
+    });
     marcoExContainer.appendChild(newMarcoExBox);
   }
 
@@ -350,5 +362,6 @@ savebutton.addEventListener("click", () => {
   URL.revokeObjectURL(url);
 });
 
-localStorage.getItem("EFoiAssim") &&
+if (localStorage.getItem("EFoiAssim")) {
   loadfich(JSON.parse(localStorage.getItem("EFoiAssim")));
+}
