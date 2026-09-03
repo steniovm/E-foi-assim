@@ -151,7 +151,8 @@ function showFichData() {
   }
 
   document.getElementsByName("author")[0].value = fichData.author;
-  showFichData();
+
+  newfichshow();
 }
 
 function loadfich(fichLoaded) {
