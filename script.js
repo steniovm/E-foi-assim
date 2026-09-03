@@ -29,6 +29,9 @@ const fichData = {
   date: "",
 };
 
+//para o form não ser enviado automaticamente
+//event.preventDefault();
+
 function capturedataform() {
   const dados = new FormData(datafich);
   console.log("Captured form data:", dados);
@@ -55,6 +58,9 @@ function capturedataform() {
   fichData.date = formatarData();
 
   console.log("Dados atualizados com Arrays:", fichData);
+
+  // Salva o rascunho completo no navegador
+  localStorage.setItem("EFoiAssim", JSON.stringify(dadosObjeto));
 }
 
 function newfichshow() {
@@ -343,3 +349,6 @@ savebutton.addEventListener("click", () => {
 
   URL.revokeObjectURL(url);
 });
+
+localStorage.getItem("EFoiAssim") &&
+  loadfich(JSON.parse(localStorage.getItem("EFoiAssim")));
