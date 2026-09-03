@@ -7,6 +7,7 @@ const newfichButton = document.getElementById("newfich");
 const loadfichButton = document.getElementById("loadfich");
 const findfichButton = document.getElementById("findfich");
 const backButton = document.getElementsByClassName("backButton");
+const savebutton = document.getElementById("savebutton");
 const fileInput = document.getElementById("fileInput");
 const inputsdata = document.getElementsByClassName("dataunic");
 const marcoContainer = document.getElementById("marcoContainer");
@@ -278,3 +279,30 @@ function addMarcoEBox() {
 }
 
 addMarcoE.addEventListener("click", addMarcoEBox);
+
+function formatarData(data = new Date()) {
+  const ano = data.getFullYear();
+  // padStart garante que meses/dias com 1 dígito tenham o "0" na frente
+  const mes = String(data.getMonth() + 1).padStart(2, "0");
+  const dia = String(data.getDate()).padStart(2, "0");
+  const hora = String(data.getHours()).padStart(2, "0");
+  const minuto = String(data.getMinutes()).padStart(2, "0");
+  const segundo = String(data.getSeconds()).padStart(2, "0");
+
+  return `${ano}${mes}${dia}${hora}${minuto}${segundo}`;
+}
+
+savebutton.addEventListener("click", () => {
+  fichData.date = formatarData();
+  const namefile = `${fichData.title || "fichData"}_${fichData.date}.json`;
+  const jsonData = JSON.stringify(fichData, null, 2);
+  const blob = new Blob([jsonData], { type: "application/json" });
+  const url = URL.createObjectURL(blob);
+
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = namefile;
+  a.click();
+
+  URL.revokeObjectURL(url);
+});
