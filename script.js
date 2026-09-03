@@ -9,8 +9,12 @@ const findfichButton = document.getElementById("findfich");
 const backButton = document.getElementsByClassName("backButton");
 const fileInput = document.getElementById("fileInput");
 const inputsdata = document.getElementsByClassName("dataunic");
+const marcoContainer = document.getElementById("marcoContainer");
+const marcoExContainer = document.getElementById("marcoExContainer");
 const inputsMarcodata = document.getElementsByClassName("marcoInput");
 const inputsMarcoExdata = document.getElementsByClassName("marcoExInput");
+const addMarcoP = document.getElementById("addMarcoP");
+const addMarcoE = document.getElementById("addMarcoE");
 
 const fichData = {
   scale: "",
@@ -27,6 +31,12 @@ const fichData = {
 newfichButton.addEventListener("click", () => {
   startscreem.classList.add("hidden");
   setupfich.classList.remove("hidden");
+  if (marcoContainer.children.length === 0) {
+    addMarcoPBox(); // Adiciona um marco principal inicial
+  }
+  if (marcoExContainer.children.length === 0) {
+    addMarcoEBox(); // Adiciona um marco extra inicial
+  }
 });
 
 for (let i = 0; i < backButton.length; i++) {
@@ -173,3 +183,62 @@ findfichButton.addEventListener("click", () => {
   startscreem.classList.add("hidden");
   searchfich.classList.remove("hidden");
 });
+
+function creatMarcoBox(n) {
+  const marcoBox = document.createElement("div");
+  marcoBox.classList.add("marcoBox");
+  marcoBox.innerHTML = `
+  <div class="arrowbuttons">
+    <button class="upArrow" type="button">&#9650;</button>
+    <label class="numberOrder">${n + 1}º</label>
+    <button class="downArrow" type="button">&#9660;</button>
+  </div>
+  <div class="marcoInputBox">
+    <input type="text" class="marcoInput" name="eventsmain" required />
+  </div>
+  <div class="deleteButtonContainer">
+    <button type="button" class="functionButton deleteButton">-</button>
+  </div>
+  `;
+  return marcoBox;
+}
+
+function creatMarcoExBox() {
+  const marcoEBox = document.createElement("div");
+  marcoEBox.classList.add("marcoExBox");
+  marcoEBox.innerHTML = `
+  <div class="marcoExInputBox">
+    <input type="text" class="marcoExInput" name="eventsextra" required />
+  </div>
+  <div class="deleteButtonContainer">
+    <button type="button" class="functionButton deleteButton">-</button>
+  </div>
+  `;
+  return marcoEBox;
+}
+
+function addMarcoPBox() {
+  const newMarcoBox = creatMarcoBox(marcoContainer.children.length);
+  const removeButton = newMarcoBox.querySelector(".deleteButton");
+  removeButton.addEventListener("click", () => {
+    newMarcoBox.remove();
+    seteventinmarcodata(); // Atualiza os eventos principais após a remoção
+  });
+  marcoContainer.appendChild(newMarcoBox);
+  seteventinmarcodata(); // Atualiza os eventos principais após a adição
+}
+
+addMarcoP.addEventListener("click", addMarcoPBox);
+
+function addMarcoEBox() {
+  const newMarcoExBox = creatMarcoExBox(marcoExContainer.children.length);
+  const removeButton = newMarcoExBox.querySelector(".deleteButton");
+  removeButton.addEventListener("click", () => {
+    newMarcoExBox.remove();
+    seteventinmarcoexdata(); // Atualiza os eventos extras após a remoção
+  });
+  marcoExContainer.appendChild(newMarcoExBox);
+  seteventinmarcoexdata(); // Atualiza os eventos extras após a adição
+}
+
+addMarcoE.addEventListener("click", addMarcoEBox);
