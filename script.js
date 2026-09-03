@@ -28,6 +28,35 @@ const fichData = {
   author: "",
   date: "",
 };
+
+function capturedataform() {
+  const dados = new FormData(datafich);
+  console.log("Captured form data:", dados);
+  const dadosObjeto = {};
+  // Obtém uma lista única de todos os nomes de campos presentes no formulário
+  const chavesUnicas = [...new Set(dados.keys())];
+  console.log("Unique field names:", chavesUnicas);
+  chavesUnicas.forEach((chave) => {
+    // Pega todos os valores associados àquela chave específica
+    const valores = dados.getAll(chave);
+    // Se houver campo de marcos, salva como Array. Se outro campo, salva como String.
+    dadosObjeto[chave] =
+      chave === "eventsmain" || chave === "eventsextra" ? valores : valores[0];
+  });
+
+  fichData.scale = dadosObjeto.scale || "";
+  fichData.title = dadosObjeto.title || "";
+  fichData.scientist = dadosObjeto.scientist || "";
+  fichData.objective = dadosObjeto.objective || "";
+  fichData.detailing = dadosObjeto.detailing || "";
+  fichData.eventsmain = dadosObjeto.eventsmain || [];
+  fichData.eventsextra = dadosObjeto.eventsextra || [];
+  fichData.author = dadosObjeto.author || "";
+  fichData.date = formatarData();
+
+  console.log("Dados atualizados com Arrays:", fichData);
+}
+
 function newfichshow() {
   startscreem.classList.add("hidden");
   setupfich.classList.remove("hidden");
@@ -38,6 +67,7 @@ function newfichshow() {
     addMarcoEBox(); // Adiciona um marco extra inicial
   }
 }
+
 newfichButton.addEventListener("click", newfichshow);
 
 for (let i = 0; i < backButton.length; i++) {
@@ -87,6 +117,7 @@ for (let i = 0; i < inputsdata.length; i++) {
     setFichData(fieldName, fieldValue);
     console.log(`Updated ${fieldName}: ${fieldValue}`);
     console.log("Current fichData:", fichData);
+    capturedataform();
   });
 }
 
@@ -101,6 +132,7 @@ function seteventinmarcodata() {
       }
       console.log(`Updated ${fieldName}: ${fieldValue}`);
       console.log("Current fichData:", fichData);
+      capturedataform();
     });
   }
 }
@@ -116,6 +148,7 @@ function seteventinmarcoexdata() {
       }
       console.log(`Updated ${fieldName}: ${fieldValue}`);
       console.log("Current fichData:", fichData);
+      capturedataform();
     });
   }
 }
@@ -185,6 +218,7 @@ function loadfich(fichLoaded) {
     fichData.date = fichLoaded.date;
   }
   showFichData();
+  capturedataform();
 }
 
 loadfichButton.addEventListener("click", () => {
@@ -198,6 +232,7 @@ loadfichButton.addEventListener("click", () => {
   }
   fileInput.click();
 });
+
 fileInput.addEventListener("change", (event) => {
   const file = event.target.files[0];
   if (file) {
@@ -260,6 +295,7 @@ function addMarcoPBox() {
   removeButton.addEventListener("click", () => {
     newMarcoBox.remove();
     seteventinmarcodata(); // Atualiza os eventos principais após a remoção
+    capturedataform();
   });
   marcoContainer.appendChild(newMarcoBox);
   seteventinmarcodata(); // Atualiza os eventos principais após a adição
@@ -273,6 +309,7 @@ function addMarcoEBox() {
   removeButton.addEventListener("click", () => {
     newMarcoExBox.remove();
     seteventinmarcoexdata(); // Atualiza os eventos extras após a remoção
+    capturedataform();
   });
   marcoExContainer.appendChild(newMarcoExBox);
   seteventinmarcoexdata(); // Atualiza os eventos extras após a adição
