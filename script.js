@@ -27,8 +27,7 @@ const fichData = {
   author: "",
   date: "",
 };
-
-newfichButton.addEventListener("click", () => {
+function newfichshow() {
   startscreem.classList.add("hidden");
   setupfich.classList.remove("hidden");
   if (marcoContainer.children.length === 0) {
@@ -37,7 +36,8 @@ newfichButton.addEventListener("click", () => {
   if (marcoExContainer.children.length === 0) {
     addMarcoEBox(); // Adiciona um marco extra inicial
   }
-});
+}
+newfichButton.addEventListener("click", newfichshow);
 
 for (let i = 0; i < backButton.length; i++) {
   backButton[i].addEventListener("click", () => {
@@ -120,6 +120,40 @@ function seteventinmarcoexdata() {
 }
 seteventinmarcoexdata();
 
+function showFichData() {
+  if (fichData.scale === "short") {
+    document.getElementById("avcurto").checked = true;
+  } else {
+    document.getElementById("avlongo").checked = true;
+  }
+  document.getElementsByName("title")[0].value = fichData.title;
+  document.getElementsByName("scientist")[0].value = fichData.scientist;
+  document.getElementsByName("objective")[0].value = fichData.objective;
+  document.getElementsByName("detailing")[0].value = fichData.detailing;
+
+  // Clear existing main events
+  marcoContainer.innerHTML = "";
+  // Populate main events
+  for (let i = 0; i < fichData.eventsmain.length; i++) {
+    const newMarcoBox = creatMarcoBox(i);
+    newMarcoBox.querySelector(".marcoInput").value = fichData.eventsmain[i];
+    marcoContainer.appendChild(newMarcoBox);
+  }
+
+  // Clear existing extra events
+  marcoExContainer.innerHTML = "";
+  // Populate extra events
+  for (let i = 0; i < fichData.eventsextra.length; i++) {
+    const newMarcoExBox = creatMarcoExBox(i);
+    newMarcoExBox.querySelector(".marcoExInput").value =
+      fichData.eventsextra[i];
+    marcoExContainer.appendChild(newMarcoExBox);
+  }
+
+  document.getElementsByName("author")[0].value = fichData.author;
+  showFichData();
+}
+
 function loadfich(fichLoaded) {
   if (fichLoaded.scale) {
     fichData.scale = fichLoaded.scale;
@@ -148,6 +182,7 @@ function loadfich(fichLoaded) {
   if (fichLoaded.date) {
     fichData.date = fichLoaded.date;
   }
+  showFichData();
 }
 
 loadfichButton.addEventListener("click", () => {
