@@ -14,6 +14,7 @@ const marcoContainer = document.getElementById("marcoContainer");
 const marcoExContainer = document.getElementById("marcoExContainer");
 const inputsMarcodata = document.getElementsByClassName("marcoInput");
 const inputsMarcoExdata = document.getElementsByClassName("marcoExInput");
+const marcoboxes = document.getElementsByClassName("marcoBox");
 const addMarcoP = document.getElementById("addMarcoP");
 const addMarcoE = document.getElementById("addMarcoE");
 
@@ -307,11 +308,42 @@ function creatMarcoExBox() {
   return marcoEBox;
 }
 
+function updateOrderLabels() {
+  for (let i = 0; i < marcoboxes.length; i++) {
+    marcoboxes[i].querySelector(".numberOrder").textContent = `${i + 1}º`;
+  }
+}
+
+function moveMarcoBox(marcoBox, dir) {
+  const outherMB =
+    dir === "up"
+      ? marcoBox.previousElementSibling
+      : marcoBox.nextElementSibling;
+  if (!outherMB || !outherMB.classList.contains("marcoBox")) return;
+  if (dir === "up") {
+    marcoContainer.insertBefore(marcoBox, outherMB);
+  } else {
+    marcoContainer.insertBefore(outherMB, marcoBox);
+  }
+  updateOrderLabels();
+  capturedataform(); // Atualiza os dados após a movimentação
+}
+
+marcoContainer.addEventListener("click", (ev) => {
+  const arrowButton = ev.target.closest(".upArrow, .downArrow");
+  if (!arrowButton) return;
+
+  const marcoBox = arrowButton.closest(".marcoBox");
+  const dir = arrowButton.classList.contains("upArrow") ? "up" : "down";
+  moveMarcoBox(marcoBox, dir);
+});
+
 function addMarcoPBox() {
   const newMarcoBox = creatMarcoBox(marcoContainer.children.length);
   const removeButton = newMarcoBox.querySelector(".deleteButton");
   removeButton.addEventListener("click", () => {
     newMarcoBox.remove();
+    updateOrderLabels();
     seteventinmarcodata(); // Atualiza os eventos principais após a remoção
     capturedataform();
   });
