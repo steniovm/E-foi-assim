@@ -59,8 +59,10 @@
       <input type="text" id="authorName" class="dataunic" name="author"
         placeholder="Seu nome, ou como gostária de ser reconhecido." required />
       <button type="button" id="savebutton">Salvar (JSON)</button>
-      <button id="exportbutton">Exportar (SVG)</button>
-      <button id="viewbutton">Visualizar (HTML)</button>
+      <button type="button" id="exportbuttonSVG">Exportar (SVG)</button>
+      <button type="button" id="exportbuttonPNG">Exportar (PNG)</button>
+      <button type="button" id="exportbuttonJPG">Exportar (JPG)</button>
+      <button type="button" id="viewbutton">Visualizar (HTML)</button>
       <button type="button" id="backbutton" class="backButton">Voltar (Inicio)</button>
     </form>
   </fieldset>
@@ -70,8 +72,89 @@
   <fieldset id="searchfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
   </fieldset>
-  <div id="adventureOutput"></div>
-
+  <div class="modal">
+    <h3 id="closeModal">FECHAR</h3>
+    <div id="adventureOutput">
+      <div class="lineInModal">
+        <div id="showTitlebox">
+          <h2 id="showCientistName">Marie Currie</h2>
+          <p id="showdiscoveryName">Descoberta do Rádio</p>
+        </div>
+        <div id="showDescriptionbox">
+          <p id="showDetailedDescription">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+            incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showMarcosbox">
+          <h4>Inicio</h4>
+          <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-01.svg" alt="Inicio da aventura" />
+          <div id="showMarcosList">
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <div id="marcopoint">
+              <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-03.svg" alt="Marco point win" />
+              <p id="showMarco1">Marco 1</p>
+            </div>
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <div id="marcopoint">
+              <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-03.svg" alt="Marco point win" />
+              <p id="showMarco1">Marco 2</p>
+            </div>
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <div id="marcopoint">
+              <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-03.svg" alt="Marco point win" />
+              <p id="showMarco1">Marco 3</p>
+            </div>
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />
+            <div id="marcopoint">
+              <img class="marcobullet" src="./assets/imgs/efoiassim-elementos-03.svg" alt="Marco point win" />
+              <p id="showMarco1">Marco 4</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showMarcosExbox">
+          <h4>Extras</h4>
+          <div id="showMarcosExList">
+            <p id="showMarcoEx1"><span class="checkbox"></span> Marco Extra 1</p>
+            <p id="showMarcoEx2"><span class="checkbox"></span> Marco Extra 2</p>
+            <p id="showMarcoEx3"><span class="checkbox"></span> Marco Extra 3</p>
+            <p id="showMarcoEx4"><span class="checkbox"></span> Marco Extra 4</p>
+            <p id="showMarcoEx1"><span class="checkbox"></span> Marco Extra 5</p>
+            <p id="showMarcoEx2"><span class="checkbox"></span> Marco Extra 6</p>
+            <p id="showMarcoEx3"><span class="checkbox"></span> Marco Extra 7</p>
+            <p id="showMarcoEx4"><span class="checkbox"></span> Marco Extra 8</p>
+          </div>
+        </div>
+      </div>
+      <div class="lineInModal">
+        <div id="showAuthorbox">
+          <p id="showAuthorName">Autor: Fulano de Tal</p>
+        </div>
+        <div id="showdatemade">
+          <p id="showDateMade">Data: 01/01/2024</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="html-to-image.js"></script>
   <script src="script.js"></script>
 
 </body>

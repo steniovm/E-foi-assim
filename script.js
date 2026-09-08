@@ -17,6 +17,10 @@ const inputsMarcoExdata = document.getElementsByClassName("marcoExInput");
 const marcoboxes = document.getElementsByClassName("marcoBox");
 const addMarcoP = document.getElementById("addMarcoP");
 const addMarcoE = document.getElementById("addMarcoE");
+const adventureOutput = document.getElementById("adventureOutput");
+const exportbuttonSVG = document.getElementById("exportbuttonSVG");
+const exportbuttonPNG = document.getElementById("exportbuttonPNG");
+const exportbuttonJPG = document.getElementById("exportbuttonJPG");
 
 const fichData = {
   scale: "",
@@ -397,3 +401,50 @@ savebutton.addEventListener("click", () => {
 if (localStorage.getItem("EFoiAssim")) {
   loadfich(JSON.parse(localStorage.getItem("EFoiAssim")));
 }
+
+function exportToImage(type) {
+  console.log(`Exporting as ${type.toUpperCase()}`);
+  let link = document.createElement("a");
+  let filename = `${fichData.title || "fichData"}_${formatarData()}.${type}`;
+  console.log(`Filename: ${filename}`);
+  switch (type) {
+    case "svg":
+      htmlToImage.toSvg(adventureOutput).then(function (dataUrl) {
+        console.log(dataUrl);
+        console.log("SVG Data URL generated");
+        link.href = dataUrl;
+        link.download = filename;
+        link.click();
+      });
+      break;
+    case "png":
+      htmlToImage.toPng(adventureOutput).then(function (dataUrl) {
+        console.log("PNG Data URL generated");
+        link.href = dataUrl;
+        link.download = filename;
+        link.click();
+      });
+      break;
+    case "jpeg":
+      htmlToImage.toJpeg(adventureOutput).then(function (dataUrl) {
+        console.log("JPEG Data URL generated");
+        link.href = dataUrl;
+        link.download = filename;
+        link.click();
+      });
+      break;
+  }
+}
+
+exportbuttonSVG.addEventListener("click", () => {
+  console.log("Exporting as SVG");
+  exportToImage("svg");
+});
+
+exportbuttonPNG.addEventListener("click", () => {
+  exportToImage("png");
+});
+
+exportbuttonJPG.addEventListener("click", () => {
+  exportToImage("jpeg");
+});
