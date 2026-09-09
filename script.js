@@ -6,6 +6,7 @@ const datafich = document.getElementById("datafich");
 const newfichButton = document.getElementById("newfich");
 const loadfichButton = document.getElementById("loadfich");
 const findfichButton = document.getElementById("findfich");
+const continuefich = document.getElementById("continuefich");
 const backButton = document.getElementsByClassName("backButton");
 const savebutton = document.getElementById("savebutton");
 const fileInput = document.getElementById("fileInput");
@@ -21,6 +22,8 @@ const adventureOutput = document.getElementById("adventureOutput");
 const exportbuttonSVG = document.getElementById("exportbuttonSVG");
 const exportbuttonPNG = document.getElementById("exportbuttonPNG");
 const exportbuttonJPG = document.getElementById("exportbuttonJPG");
+const modalfich = document.getElementById("modalfich");
+const closeModal = document.getElementById("closeModal");
 
 const fichData = {
   scale: "",
@@ -81,10 +84,18 @@ function newfichshow() {
 
 newfichButton.addEventListener("click", newfichshow);
 
+function continuefichshow() {
+  startscreem.classList.add("hidden");
+  setupfich.classList.remove("hidden");
+}
+
+continuefich.addEventListener("click", continuefichshow);
+
 for (let i = 0; i < backButton.length; i++) {
   backButton[i].addEventListener("click", () => {
     setupfich.classList.add("hidden");
     startscreem.classList.remove("hidden");
+    continuefich.classList.remove("hidden");
     console.log("Back button clicked");
   });
 }
@@ -370,6 +381,11 @@ function addMarcoEBox() {
 }
 
 addMarcoE.addEventListener("click", addMarcoEBox);
+
+closeModal.addEventListener("click", () => {
+  modalfich.classList.add("hidden");
+  console.log("Modal closed");
+});
 
 function formatarData(data = new Date()) {
   const ano = data.getFullYear();

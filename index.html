@@ -15,6 +15,7 @@
       <button type="button" id="newfich">Nova Ficha</button>
       <button type="button" id="loadfich">Carregar Ficha</button>
       <button type="button" id="findfich">Pesquisar Ficha</button>
+      <button type="button" class="hidden" id="continuefich">Continuar Ficha</button>
     </div>
     <input type="file" id="fileInput" accept=".json" class="hidden" />
   </main>
@@ -72,7 +73,7 @@
   <fieldset id="searchfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
   </fieldset>
-  <div class="modal">
+  <div id="modalfich" class="modal hidden">
     <h3 id="closeModal">FECHAR</h3>
     <div id="adventureOutput">
       <div class="lineInModal">
