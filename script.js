@@ -454,13 +454,16 @@ function exportToImage(type) {
 
 exportbuttonSVG.addEventListener("click", () => {
   console.log("Exporting as SVG");
+  modalfich.classList.remove("hidden");
   exportToImage("svg");
 });
 
 exportbuttonPNG.addEventListener("click", () => {
+  modalfich.classList.remove("hidden");
   exportToImage("png");
 });
 
 exportbuttonJPG.addEventListener("click", () => {
+  modalfich.classList.remove("hidden");
   exportToImage("jpeg");
 });
