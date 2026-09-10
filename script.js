@@ -466,8 +466,13 @@ if (localStorage.getItem("EFoiAssim")) {
   loadfich(JSON.parse(localStorage.getItem("EFoiAssim")));
 }
 
-function exportToImage(type) {
+async function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function exportToImage(type) {
   console.log(`Exporting as ${type.toUpperCase()}`);
+  await delay(1000);
   let link = document.createElement("a");
   let filename = `${fichData.title || "fichData"}_${formatarData()}.${type}`;
   console.log(`Filename: ${filename}`);
