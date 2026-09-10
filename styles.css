@@ -449,7 +449,7 @@ textarea {
   display: flex;
   flex-direction: column;
   max-height: 6rem;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 8px;

@@ -398,6 +398,16 @@ function formatarData(data = new Date()) {
 
   return `${ano}${mes}${dia}${hora}${minuto}${segundo}`;
 }
+function extrairData(dataString) {
+  const ano = dataString.substring(0, 4);
+  const mes = dataString.substring(4, 6);
+  const dia = dataString.substring(6, 8);
+  const hora = dataString.substring(8, 10);
+  const minuto = dataString.substring(10, 12);
+  const segundo = dataString.substring(12, 14);
+
+  return `${dia}/${mes}/${ano}-${hora}:${minuto}:${segundo}`;
+}
 
 savebutton.addEventListener("click", () => {
   fichData.date = formatarData();
@@ -413,6 +423,44 @@ savebutton.addEventListener("click", () => {
 
   URL.revokeObjectURL(url);
 });
+
+function marcoListPoints() {
+  const pointStart = `<div class="marcopoint marcostart">
+              <h4>Inicio</h4>
+              <img class="marcobulletstar" src="./assets/imgs/efoiassim-elementos-01.svg" alt="Inicio da aventura" />
+            </div>`;
+  const pointBlack = `<img class="marcobullet" src="./assets/imgs/efoiassim-elementos-02.svg" alt="Marco point" />`;
+  const npoints = { short: 3, long: 5 };
+  let listpoints = pointStart;
+  for (let i = 0; i < fichData.eventsmain.length; i++) {
+    for (let j = 0; j < npoints[fichData.scale]; j++) {
+      listpoints += pointBlack;
+    }
+    listpoints += `<div class="marcopoint">
+              <img class="marcobulletstar" src="./assets/imgs/efoiassim-elementos-03.svg" alt="Marco point win" />
+              <p>${fichData.eventsmain[i]}</p>
+            </div>`;
+  }
+  return listpoints;
+}
+
+function marcoExListPoints() {
+  let events = "";
+  for (let i = 0; i < fichData.eventsextra.length; i++) {
+    events += `<p><span class="checkbox"></span> ${fichData.eventsextra[i]}</p>`;
+  }
+  return events;
+}
+
+function fichToModal() {
+  showCientistName.textContent = fichData.scientist;
+  showdiscoveryName.textContent = fichData.objective;
+  showDetailedDescription.textContent = fichData.detailing;
+  showMarcosList.innerHTML = marcoListPoints();
+  showMarcosExList.innerHTML = marcoExListPoints();
+  showAuthorName.innerHTML = `<strong>Autor</strong>: ${fichData.author}`;
+  showDateMade.innerHTML = `<strong>Data</strong>: ${extrairData(fichData.date)}`;
+}
 
 if (localStorage.getItem("EFoiAssim")) {
   loadfich(JSON.parse(localStorage.getItem("EFoiAssim")));
@@ -454,16 +502,21 @@ function exportToImage(type) {
 
 exportbuttonSVG.addEventListener("click", () => {
   console.log("Exporting as SVG");
+  fichToModal();
   modalfich.classList.remove("hidden");
   exportToImage("svg");
 });
 
 exportbuttonPNG.addEventListener("click", () => {
+  console.log("Exporting as PNG");
+  fichToModal();
   modalfich.classList.remove("hidden");
   exportToImage("png");
 });
 
 exportbuttonJPG.addEventListener("click", () => {
+  console.log("Exporting as JPG");
+  fichToModal();
   modalfich.classList.remove("hidden");
   exportToImage("jpeg");
 });
