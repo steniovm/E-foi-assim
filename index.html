@@ -21,6 +21,21 @@
   </main>
   <fieldset id="setupfich" class="hidden">
     <img class="titleimg" src="./assets/imgs/titulo.png" alt="Titulo - E foi assim..." />
+    <nav>
+      <ul class="menu">
+        <li><button type="button" id="backbutton" class="backButton">Voltar ao Inicio</button></li>
+        <li><button type="button" id="viewbutton">Visualizar HTML</button></li>
+        <li><button type="button" id="savebutton">Salvar JSON</button></li>
+        <li>
+          <button type="button">Exportar Imagem</button>
+          <ul>
+            <button type="button" id="exportbuttonSVG">Exportar SVG</button>
+            <button type="button" id="exportbuttonPNG">Exportar PNG</button>
+            <button type="button" id="exportbuttonJPG">Exportar JPG</button>
+          </ul>
+        </li>
+      </ul>
+    </nav>
     <form id="datafich">
       <div class="form-group-h">
         <div class="optionsradio">
@@ -59,13 +74,15 @@
       <h3>Autor</h3>
       <input type="text" id="authorName" class="dataunic" name="author"
         placeholder="Seu nome, ou como gostária de ser reconhecido." required />
-      <button type="button" id="savebutton">Salvar (JSON)</button>
+      <!--<button type="button" id="savebutton">Salvar (JSON)</button>-->
       <!--ver se dá pra colocar os três botões de exportação em um menu flutuante-->
+      <!--
       <button type="button" id="exportbuttonSVG">Exportar (SVG)</button>
       <button type="button" id="exportbuttonPNG">Exportar (PNG)</button>
       <button type="button" id="exportbuttonJPG">Exportar (JPG)</button>
       <button type="button" id="viewbutton">Visualizar (HTML)</button>
       <button type="button" id="backbutton" class="backButton">Voltar (Inicio)</button>
+      -->
     </form>
   </fieldset>
   <fieldset id="loaderfich" class="hidden">
