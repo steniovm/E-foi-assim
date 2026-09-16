@@ -494,17 +494,13 @@ nav * {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 4px;
+  gap: 16px;
 }
 .menu li {
   position: relative;
   float: left;
 }
-li button {
-  width: 116px;
-  height: 1.5rem;
-  font-size: 11px;
-}
+
 .menu li ul {
   position: absolute;
   top: 25px;
@@ -514,6 +510,12 @@ li button {
 }
 .menu li button {
   display: block;
+  width: 80px;
+  height: 1.5rem;
+  font-size: 11px;
+}
+.menu ul > button {
+  width: 110px;
 }
 .menu li button:hover {
   color: #fff;

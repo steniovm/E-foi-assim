@@ -471,51 +471,9 @@ async function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
-function htmlcreate(contend) {
-  console.log(contend);
-  return `
-    <!DOCTYPE html>
-  <html lang="pt-br">
-    <head>
-      <meta charset="utf-8" />
-      <meta property="og:title" content="E foi assim ... RPG / ${fichData.scientist || ""}" />
-      <meta property="og:description" content='História: ${fichData.objective || ""}' />
-      <meta property="og:locale" content="pt-br" />
-      <meta property="description" content='Descrição: ${fichData.detailing || ""} ' />
-      <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-      <title>${fichData.scientist || ""} - E foi assim... - RPG</title>
-      <style>
-
-      <!--Inserir regras-->
-
-      </style>
-  </head>
-  <body>
-  ${adventureOutput.innerHTML}
-  </html>
-  `;
-}
-
-function savehtml() {
-  let link = document.createElement("a");
-  let modalfich = document.cloneNode(adventureOutput);
-  let htmltofile = htmlcreate(modalfich);
-  let text = new Blob([htmltofile]);
-  ([htmltofile], { type: "text/plain: charset=utf-8" });
-  let namefile = `${fichData.title || "fichData"}_${formatarData()}.html`;
-  link.setAttribute("download", namefile);
-  link.setAttribute(
-    "href",
-    "data:text/plain;charset=utf-8," + encodeURIComponent(text),
-  );
-  link.href = URL.createObjectURL(text);
-  link.click();
-}
-
 viewbutton.addEventListener("click", () => {
   console.log("Visualizando ficha");
   fichToModal();
-  //savehtml();
   modalfich.classList.remove("hidden");
 });
 
