@@ -325,7 +325,6 @@ textarea {
   left: auto;
   width: 650px;
   height: fit-content;
-  /*max-height: 60vh;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -389,10 +388,6 @@ textarea {
   transform: rotate(-10deg);
   white-space: nowrap;
   min-width: 30%;
-  /*
-  background-image: var(--cover-title);
-  background-size: contain;
-  background-repeat: no-repeat;*/
 }
 #showTitlebox::before {
   content: "";
@@ -494,12 +489,12 @@ nav * {
 }
 .menu {
   list-style: none;
-  /*border: 2px groove #c0c0c0;*/
   border-radius: 5px;
   float: left;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  gap: 4px;
 }
 .menu li {
   position: relative;
@@ -514,18 +509,13 @@ li button {
   position: absolute;
   top: 25px;
   left: 0;
-  /*background-color: #b7e9d8;*/
   display: none;
   z-index: 1;
 }
 .menu li button {
-  /*color: #333;*/
-  /*text-decoration: none;*/
-  /*padding: 9px 4px;*/
   display: block;
 }
 .menu li button:hover {
-  /*background: #333;*/
   color: #fff;
   text-shadow: 0px 0px 5px #fff;
 }
